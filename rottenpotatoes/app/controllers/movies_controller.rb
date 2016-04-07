@@ -49,7 +49,18 @@ class MoviesController < ApplicationController
   def edit
     @movie = Movie.find params[:id]
   end
-
+  
+  def directors
+    @movie = Movie.find params[:id]
+    if @movie.director.blank?
+      flash[:notice] = "'#{@movie.title}' has no director info."
+      redirect_to movies_path
+    else
+      @movies = Movie.find_all_by_director(@movie.director)
+    end
+      
+  end
+    
   def update
     @movie = Movie.find params[:id]
     @movie.update_attributes!(params[:movie])
