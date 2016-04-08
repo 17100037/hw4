@@ -2161,3 +2161,528 @@ Processing by MoviesController#index as HTML
   Rendered movies/index.html.haml within layouts/application (10.2ms)
 Completed 200 OK in 17.0ms (Views: 14.7ms | ActiveRecord: 0.3ms)
   [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (23.2ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 08 Apr 2016 09:21:56 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "PG"], ["release_date", Wed, 25 May 1977 00:00:00 UTC +00:00], ["title", "Star Wars"], ["updated_at", Fri, 08 Apr 2016 09:21:56 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (36.4ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Apr 2016 09:21:56 UTC +00:00], ["description", nil], ["director", "Ridley Scott"], ["rating", "PG"], ["release_date", Fri, 25 Jun 1982 00:00:00 UTC +00:00], ["title", "Blade Runner"], ["updated_at", Fri, 08 Apr 2016 09:21:56 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 08 Apr 2016 09:21:56 UTC +00:00], ["description", nil], ["director", ""], ["rating", "R"], ["release_date", Fri, 25 May 1979 00:00:00 UTC +00:00], ["title", "Alien"], ["updated_at", Fri, 08 Apr 2016 09:21:56 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Apr 2016 09:21:56 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "R"], ["release_date", Thu, 11 Mar 1971 00:00:00 UTC +00:00], ["title", "THX-1138"], ["updated_at", Fri, 08 Apr 2016 09:21:56 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Alien' LIMIT 1
+Started GET "/movies/3/edit" for 127.0.0.1 at 2016-04-08 09:21:56 +0000
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered movies/edit.html.haml within layouts/application (86.8ms)
+Completed 200 OK in 202.6ms (Views: 200.1ms | ActiveRecord: 0.3ms)
+Started PUT "/movies/3" for 127.0.0.1 at 2016-04-08 09:21:57 +0000
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "movie"=>{"title"=>"Alien", "rating"=>"R", "release_date(1i)"=>"1979", "release_date(2i)"=>"5", "release_date(3i)"=>"25", "director"=>"Ridley Scott"}, "commit"=>"Update Movie Info", "id"=>"3"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "movies" SET "director" = 'Ridley Scott', "updated_at" = '2016-04-08 09:21:57.192139' WHERE "movies"."id" = 3
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/movies/3
+Completed 302 Found in 7.5ms (ActiveRecord: 0.5ms)
+Started GET "/movies/3" for 127.0.0.1 at 2016-04-08 09:21:57 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered movies/show.html.haml within layouts/application (7.8ms)
+Completed 200 OK in 14.1ms (Views: 12.5ms | ActiveRecord: 0.1ms)
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Alien' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "PG"], ["release_date", Wed, 25 May 1977 00:00:00 UTC +00:00], ["title", "Star Wars"], ["updated_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00], ["description", nil], ["director", "Ridley Scott"], ["rating", "PG"], ["release_date", Fri, 25 Jun 1982 00:00:00 UTC +00:00], ["title", "Blade Runner"], ["updated_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00], ["description", nil], ["director", ""], ["rating", "R"], ["release_date", Fri, 25 May 1979 00:00:00 UTC +00:00], ["title", "Alien"], ["updated_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "R"], ["release_date", Thu, 11 Mar 1971 00:00:00 UTC +00:00], ["title", "THX-1138"], ["updated_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Star Wars' LIMIT 1
+Started GET "/movies/1" for 127.0.0.1 at 2016-04-08 09:21:57 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered movies/show.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 7.0ms (Views: 5.2ms | ActiveRecord: 0.1ms)
+Started GET "/movies/1/directors" for 127.0.0.1 at 2016-04-08 09:21:57 +0000
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."director" = 'George Lucas'[0m
+  Rendered movies/directors.html.haml within layouts/application (5.5ms)
+Completed 200 OK in 13.0ms (Views: 9.9ms | ActiveRecord: 0.3ms)
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Star Wars' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "PG"], ["release_date", Wed, 25 May 1977 00:00:00 UTC +00:00], ["title", "Star Wars"], ["updated_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00], ["description", nil], ["director", "Ridley Scott"], ["rating", "PG"], ["release_date", Fri, 25 Jun 1982 00:00:00 UTC +00:00], ["title", "Blade Runner"], ["updated_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00], ["description", nil], ["director", ""], ["rating", "R"], ["release_date", Fri, 25 May 1979 00:00:00 UTC +00:00], ["title", "Alien"], ["updated_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "R"], ["release_date", Thu, 11 Mar 1971 00:00:00 UTC +00:00], ["title", "THX-1138"], ["updated_at", Fri, 08 Apr 2016 09:21:57 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Alien' LIMIT 1[0m
+Started GET "/movies/3" for 127.0.0.1 at 2016-04-08 09:21:57 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered movies/show.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 7.4ms (Views: 5.7ms | ActiveRecord: 0.1ms)
+Started GET "/movies/3/directors" for 127.0.0.1 at 2016-04-08 09:21:57 +0000
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "3"]]
+Redirected to http://www.example.com/movies
+Completed 302 Found in 2.5ms (ActiveRecord: 0.1ms)
+Started GET "/movies" for 127.0.0.1 at 2016-04-08 09:21:57 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (11.4ms)
+Completed 200 OK in 18.4ms (Views: 16.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#update as HTML
+  Parameters: {"movie"=>"#[RSpec::Mocks::Mock:0x2bf2244 @name=Movie(id: integer, title: string, rating: string, description: text, release_date: datetime, created_at: datetime, updated_at: datetime, director: string)]", "id"=>"1"}
+Redirected to http://test.host/movies/%23%5BRSpec::Mocks::Mock:0x2bf2244%20@name=Movie(id:%20integer,%20title:%20string,%20rating:%20string,%20description:%20text,%20release_date:%20datetime,%20created_at:%20datetime,%20updated_at:%20datetime,%20director:%20string)%5D
+Completed 302 Found in 1.9ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#update as HTML
+  Parameters: {"movie"=>"#[RSpec::Mocks::Mock:0x2f4a914 @name=Movie(id: integer, title: string, rating: string, description: text, release_date: datetime, created_at: datetime, updated_at: datetime, director: string)]", "id"=>"1"}
+Completed 500 Internal Server Error in 0.9ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (10.2ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#update as HTML
+  Parameters: {"movie"=>"#[RSpec::Mocks::Mock:0x24d351c @name=Movie(id: integer, title: string, rating: string, description: text, release_date: datetime, created_at: datetime, updated_at: datetime, director: string)]", "id"=>"1"}
+Completed 500 Internal Server Error in 0.9ms
+  [1m[35m (0.2ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#update as HTML
+  Parameters: {"movie"=>"#[RSpec::Mocks::Mock:0x3078688 @name=Movie(id: integer, title: string, rating: string, description: text, release_date: datetime, created_at: datetime, updated_at: datetime, director: string)]", "id"=>"1"}
+Redirected to http://test.host/movies/%23%5BRSpec::Mocks::Mock:0x3078688%20@name=Movie(id:%20integer,%20title:%20string,%20rating:%20string,%20description:%20text,%20release_date:%20datetime,%20created_at:%20datetime,%20updated_at:%20datetime,%20director:%20string)%5D
+Completed 302 Found in 1.8ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#update as HTML
+  Parameters: {"movie"=>"#[RSpec::Mocks::Mock:0x3290c68 @name=Movie(id: integer, title: string, rating: string, description: text, release_date: datetime, created_at: datetime, updated_at: datetime, director: string)]", "id"=>"1"}
+Redirected to http://test.host/movies/%23%5BRSpec::Mocks::Mock:0x3290c68%20@name=Movie(id:%20integer,%20title:%20string,%20rating:%20string,%20description:%20text,%20release_date:%20datetime,%20created_at:%20datetime,%20updated_at:%20datetime,%20director:%20string)%5D
+Completed 302 Found in 2.4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#update as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (8.7ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 404 Not Found in 61.1ms
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#update as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 0.7ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (11.7ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'
+  Rendered movies/directors.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 188.3ms (Views: 109.9ms | ActiveRecord: 66.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (9.8ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'
+Completed 200 OK in 158.7ms (Views: 86.9ms | ActiveRecord: 62.7ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (10.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'
+Completed 200 OK in 159.4ms (Views: 84.3ms | ActiveRecord: 63.9ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (10.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'
+  Rendered movies/directors.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 199.5ms (Views: 95.9ms | ActiveRecord: 88.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 1.1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (12.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'
+  Rendered movies/directors.html.haml within layouts/application (0.2ms)
+Completed 200 OK in 171.2ms (Views: 87.8ms | ActiveRecord: 72.9ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 0.7ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (10.1ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'
+  Rendered movies/directors.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 161.5ms (Views: 83.5ms | ActiveRecord: 69.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 0.6ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (17.8ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'
+  Rendered movies/directors.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 192.8ms (Views: 93.3ms | ActiveRecord: 84.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 0.9ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (2.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 1.1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (8.7ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'
+Completed 200 OK in 166.8ms (Views: 86.5ms | ActiveRecord: 71.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (14.9ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'
+  Rendered movies/directors.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 187.6ms (Views: 102.1ms | ActiveRecord: 73.6ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 0.9ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "movies"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "movies" ("id", "title", "rating", "director", "created_at", "updated_at") VALUES (1, 'FakeMovie', 'R', 'FakeDirector', '2016-04-08 16:46:09', '2016-04-08 16:46:09')
+  [1m[36m (13.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "movies"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "movies" ("id", "title", "rating", "director", "created_at", "updated_at") VALUES (1, 'FakeMovie', 'R', 'FakeDirector', '2016-04-08 16:47:21', '2016-04-08 16:47:21')[0m
+  [1m[35m (16.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Load (14.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 1.1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'[0m
+Completed 200 OK in 102.3ms (Views: 91.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.8ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "movies"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "movies" ("id", "title", "rating", "director", "created_at", "updated_at") VALUES (1, 'FakeMovie', 'R', 'FakeDirector', '2016-04-08 16:48:11', '2016-04-08 16:48:11')[0m
+  [1m[35m (12.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Load (11.4ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 1.4ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'[0m
+Completed 200 OK in 96.7ms (Views: 86.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "movies"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "movies" ("id", "title", "rating", "director", "created_at", "updated_at") VALUES (1, 'FakeMovie', 'R', 'FakeDirector', '2016-04-08 16:49:19', '2016-04-08 16:49:19')[0m
+  [1m[35m (16.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Load (13.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 1.4ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'[0m
+Completed 200 OK in 96.9ms (Views: 83.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (10.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'
+  Rendered movies/directors.html.haml within layouts/application (0.5ms)
+Completed 200 OK in 162.4ms (Views: 86.6ms | ActiveRecord: 65.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 1.2ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "movies"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "movies" ("id", "title", "rating", "director", "created_at", "updated_at") VALUES (1, 'FakeMovie', 'R', 'FakeDirector', '2016-04-08 16:51:19', '2016-04-08 16:51:19')
+  [1m[36m (12.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (9.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'
+  Rendered movies/directors.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 156.2ms (Views: 87.1ms | ActiveRecord: 60.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 0.9ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "movies"[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO "movies" ("id", "title", "rating", "director", "created_at", "updated_at") VALUES (1, 'FakeMovie', 'R', 'FakeDirector', '2016-04-08 16:51:55', '2016-04-08 16:51:55')
+  [1m[36m (10.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "movies"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "movies" ("id", "title", "rating", "director", "created_at", "updated_at") VALUES (1, 'FakeMovie', 'R', 'FakeDirector', '2016-04-08 17:00:56', '2016-04-08 17:00:56')[0m
+  [1m[35m (10.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMovie Load (14.5ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+Redirected to http://test.host/movies
+Completed 302 Found in 2.1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.6ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."director" = 'FakeDirector'[0m
+Completed 200 OK in 172.0ms (Views: 97.9ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (71.8ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 08 Apr 2016 17:01:42 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "PG"], ["release_date", Wed, 25 May 1977 00:00:00 UTC +00:00], ["title", "Star Wars"], ["updated_at", Fri, 08 Apr 2016 17:01:42 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Apr 2016 17:01:42 UTC +00:00], ["description", nil], ["director", "Ridley Scott"], ["rating", "PG"], ["release_date", Fri, 25 Jun 1982 00:00:00 UTC +00:00], ["title", "Blade Runner"], ["updated_at", Fri, 08 Apr 2016 17:01:42 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 08 Apr 2016 17:01:42 UTC +00:00], ["description", nil], ["director", ""], ["rating", "R"], ["release_date", Fri, 25 May 1979 00:00:00 UTC +00:00], ["title", "Alien"], ["updated_at", Fri, 08 Apr 2016 17:01:42 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Apr 2016 17:01:42 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "R"], ["release_date", Thu, 11 Mar 1971 00:00:00 UTC +00:00], ["title", "THX-1138"], ["updated_at", Fri, 08 Apr 2016 17:01:42 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Alien' LIMIT 1
+Started GET "/movies/3/edit" for 127.0.0.1 at 2016-04-08 17:01:42 +0000
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered movies/edit.html.haml within layouts/application (39.3ms)
+Completed 200 OK in 163.5ms (Views: 159.7ms | ActiveRecord: 0.4ms)
+Started PUT "/movies/3" for 127.0.0.1 at 2016-04-08 17:01:43 +0000
+Processing by MoviesController#update as HTML
+  Parameters: {"utf8"=>"✓", "movie"=>{"title"=>"Alien", "rating"=>"R", "release_date(1i)"=>"1979", "release_date(2i)"=>"5", "release_date(3i)"=>"25", "director"=>"Ridley Scott"}, "commit"=>"Update Movie Info", "id"=>"3"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "movies" SET "director" = 'Ridley Scott', "updated_at" = '2016-04-08 17:01:43.115673' WHERE "movies"."id" = 3
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/movies/3
+Completed 302 Found in 7.9ms (ActiveRecord: 0.5ms)
+Started GET "/movies/3" for 127.0.0.1 at 2016-04-08 17:01:43 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered movies/show.html.haml within layouts/application (9.9ms)
+Completed 200 OK in 16.9ms (Views: 14.5ms | ActiveRecord: 0.1ms)
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Alien' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "PG"], ["release_date", Wed, 25 May 1977 00:00:00 UTC +00:00], ["title", "Star Wars"], ["updated_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00], ["description", nil], ["director", "Ridley Scott"], ["rating", "PG"], ["release_date", Fri, 25 Jun 1982 00:00:00 UTC +00:00], ["title", "Blade Runner"], ["updated_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00], ["description", nil], ["director", ""], ["rating", "R"], ["release_date", Fri, 25 May 1979 00:00:00 UTC +00:00], ["title", "Alien"], ["updated_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "R"], ["release_date", Thu, 11 Mar 1971 00:00:00 UTC +00:00], ["title", "THX-1138"], ["updated_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Star Wars' LIMIT 1
+Started GET "/movies/1" for 127.0.0.1 at 2016-04-08 17:01:43 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered movies/show.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 5.9ms (Views: 4.1ms | ActiveRecord: 0.1ms)
+Started GET "/movies/1/directors" for 127.0.0.1 at 2016-04-08 17:01:43 +0000
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."director" = 'George Lucas'[0m
+  Rendered movies/directors.html.haml within layouts/application (4.8ms)
+Completed 200 OK in 13.0ms (Views: 9.2ms | ActiveRecord: 0.3ms)
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Star Wars' LIMIT 1
+  [1m[36m (0.9ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "PG"], ["release_date", Wed, 25 May 1977 00:00:00 UTC +00:00], ["title", "Star Wars"], ["updated_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00], ["description", nil], ["director", "Ridley Scott"], ["rating", "PG"], ["release_date", Fri, 25 Jun 1982 00:00:00 UTC +00:00], ["title", "Blade Runner"], ["updated_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00], ["description", nil], ["director", ""], ["rating", "R"], ["release_date", Fri, 25 May 1979 00:00:00 UTC +00:00], ["title", "Alien"], ["updated_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "movies" ("created_at", "description", "director", "rating", "release_date", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00], ["description", nil], ["director", "George Lucas"], ["rating", "R"], ["release_date", Thu, 11 Mar 1971 00:00:00 UTC +00:00], ["title", "THX-1138"], ["updated_at", Fri, 08 Apr 2016 17:01:43 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."title" = 'Alien' LIMIT 1[0m
+Started GET "/movies/3" for 127.0.0.1 at 2016-04-08 17:01:43 +0000
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mMovie Load (0.1ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered movies/show.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 5.8ms (Views: 4.3ms | ActiveRecord: 0.1ms)
+Started GET "/movies/3/directors" for 127.0.0.1 at 2016-04-08 17:01:43 +0000
+Processing by MoviesController#directors as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT 1[0m  [["id", "3"]]
+Redirected to http://www.example.com/movies
+Completed 302 Found in 2.0ms (ActiveRecord: 0.1ms)
+Started GET "/movies" for 127.0.0.1 at 2016-04-08 17:01:43 +0000
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies" WHERE "movies"."rating" IN ('G', 'PG', 'PG-13', 'NC-17', 'R')
+  Rendered movies/index.html.haml within layouts/application (16.6ms)
+Completed 200 OK in 25.2ms (Views: 22.0ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m

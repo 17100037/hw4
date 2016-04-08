@@ -1,0 +1,5 @@
+fake_movie:
+    id: 1
+    title: FakeMovie
+    rating: R
+    director: FakeDirector
